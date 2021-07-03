@@ -5,7 +5,7 @@ from books.api.books_api_client import (
     BooksApiClient,
     VolumesData,
 )
-from books.book import Book
+from books.api.book import Book
 
 
 class BookService:

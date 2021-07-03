@@ -5,7 +5,7 @@ from typing import (
 )
 
 from books.api.books_api_client import VolumesData
-from books.book import Book
+from books.api.book import Book
 
 ItemData = Dict[str, Any]
 
