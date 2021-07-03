@@ -11,6 +11,8 @@ class Book(models.Model):
     average_rating = models.FloatField(null=True)
     ratings_count = models.PositiveIntegerField(null=True)
     thumbnail = models.URLField(max_length=256, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'{self.book_id} - {self.title}'

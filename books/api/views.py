@@ -1,5 +1,11 @@
+from dataclasses import asdict
+from typing import Dict, List
+
 from django.http import HttpRequest, JsonResponse
+
+from books.api.book_service import BookService
 
 
 def books(request: HttpRequest) -> JsonResponse:
-    return JsonResponse({'is_ok': True})
+    books_list: List[Dict] = [asdict(book) for book in BookService().get_and_save_volumes('war')]
+    return JsonResponse(books_list, safe=False)
