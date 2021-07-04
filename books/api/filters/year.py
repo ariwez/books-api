@@ -16,6 +16,9 @@ class YearFilter(BaseFilterBackend):
             view: APIView,
     ) -> QuerySet:
         year: Optional[str] = request.query_params.get("published_date")
+        if year is None:
+            return queryset
+
         if not year.isnumeric():
             raise ValidationError(f"Value should be numeric, instead {year} was passed.")
 
