@@ -3,3 +3,4 @@ psycopg2==2.9.1
 google-api-python-client==2.11.0
 django-bulk-update-or-create==0.3.0
 djangorestframework==3.12.4
+gunicorn==20.1.0
