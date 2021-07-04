@@ -22,7 +22,4 @@ class YearFilter(BaseFilterBackend):
         if not year.isnumeric():
             raise ValidationError(f"Value should be numeric, instead {year} was passed.")
 
-        date_from: date = datetime(int(year), 1, 1)
-        date_to: date = datetime(int(year), 12, 31)
-
-        return queryset.filter(published_date__gte=date_from, published_date__lte=date_to)
+        return queryset.filter(published_date__year=int(year))
