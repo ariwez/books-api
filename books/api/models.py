@@ -9,7 +9,7 @@ class Book(models.Model):
 
     book_id = models.CharField(max_length=32, unique=True)
     title = models.CharField(max_length=256, blank=True)
-    authors = ArrayField(models.CharField(max_length=256), default=list, blank=True)
+    authors = ArrayField(models.CharField(max_length=256), default=list, blank=True, null=True)
     published_date = models.DateField(null=True)
     categories = ArrayField(models.CharField(max_length=256), default=list, blank=True, null=True)
     average_rating = models.FloatField(null=True)
