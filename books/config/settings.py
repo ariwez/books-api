@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = json.loads(os.environ.get('DJANGO_ALLOWED_HOSTS', '[]'))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 DEBUG = ('True' == os.environ.get('DJANGO_DEBUG'))
-
+GOOGLE_DEVELOPER_KEY = os.environ.get('GOOGLE_DEVELOPER_KEY', '')
 
 # Application definition
 
