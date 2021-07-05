@@ -4,6 +4,7 @@ from datetime import (
 )
 from typing import List, Optional
 
+from django.db import transaction
 from django.utils import timezone
 
 from books.core.book_factory import BookFactory
@@ -44,20 +45,21 @@ class BookService:
             ) for book in books
         ]
 
-        Book.objects.bulk_update_or_create(
-            books_to_save,
-            [
-                'title',
-                'authors',
-                'published_date',
-                'categories',
-                'average_rating',
-                'ratings_count',
-                'thumbnail',
-                'updated_at',
-            ],
-            match_field='book_id',
-        )
+        with transaction.atomic():
+            Book.objects.bulk_update_or_create(
+                books_to_save,
+                [
+                    'title',
+                    'authors',
+                    'published_date',
+                    'categories',
+                    'average_rating',
+                    'ratings_count',
+                    'thumbnail',
+                    'updated_at',
+                ],
+                match_field='book_id',
+            )
 
         return len(books_to_save)
 
