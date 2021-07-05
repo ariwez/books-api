@@ -16,6 +16,9 @@ from books.api.serializers.book import BookSerializer
 
 
 class BooksListView(ListAPIView):
+    """
+    Returns a list of all books. Ordering is enabled for published_date.
+    """
     queryset: QuerySet = Book.objects.all()
     serializer_class: BookSerializer = BookSerializer
     filter_backends: Tuple[BaseFilterBackend] = (

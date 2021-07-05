@@ -23,3 +23,16 @@ class YearFilter(BaseFilterBackend):
             raise ValidationError(f"Value should be numeric, instead {year} was passed.")
 
         return queryset.filter(published_date__year=int(year))
+
+    def get_schema_operation_parameters(self, view):
+        return [
+            {
+                'name': 'year',
+                'required': False,
+                'in': 'query',
+                'description': "Filter by year, expects: \"YYYY\"",
+                'schema': {
+                    'type': 'string',
+                },
+            },
+        ]

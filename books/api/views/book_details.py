@@ -9,6 +9,9 @@ from books.api.serializers.book import BookSerializer
 
 
 class BookDetailsView(RetrieveAPIView):
+    """
+    Returns details of a book with given book_id.
+    """
     queryset: QuerySet = Book.objects.all()
     serializer_class: BookSerializer = BookSerializer
 

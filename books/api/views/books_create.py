@@ -9,6 +9,9 @@ from books.core.book_service import BookService
 
 
 class BooksCreateOrUpdateView(APIView):
+    """
+    Create or update books with given body parameter (i.e. {"q": "war"})
+    """
     authentication_classes: List = []
 
     def post(

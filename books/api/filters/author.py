@@ -18,3 +18,16 @@ class AuthorFilter(BaseFilterBackend):
             return queryset.filter(authors__overlap=authors)
 
         return queryset
+
+    def get_schema_operation_parameters(self, view):
+        return [
+            {
+                'name': 'author',
+                'required': False,
+                'in': 'query',
+                'description': "Filter by author",
+                'schema': {
+                    'type': 'string',
+                },
+            },
+        ]
