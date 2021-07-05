@@ -20,7 +20,7 @@ class BooksCreateOrUpdateViewTest(APITestCase):
         query_data = {'q': 'test-query'}
         expected_result: int = 10
 
-        with mock.patch('books.api.book_service.BookService.get_and_save_books', return_value=expected_result):
+        with mock.patch('books.core.book_service.BookService.get_and_save_books', return_value=expected_result):
             response = self.client.post(url, query_data)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

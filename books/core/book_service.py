@@ -6,12 +6,12 @@ from typing import List, Optional
 
 from django.utils import timezone
 
-from books.api.book_factory import BookFactory
-from books.api.books_api_client import (
+from books.core.book_factory import BookFactory
+from books.core.books_api_client import (
     BooksApiClient,
     VolumesData,
 )
-from books.api.book import Book as BookData
+from books.core.book import Book as BookData
 from books.api.models import Book
 
 DEFAULT_MONTH = 1

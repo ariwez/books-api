@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.request import Request
 from rest_framework.views import APIView
 
-from books.api.book_service import BookService
+from books.core.book_service import BookService
 
 
 class BooksCreateOrUpdateView(APIView):
