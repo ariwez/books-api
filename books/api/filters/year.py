@@ -27,7 +27,7 @@ class YearFilter(BaseFilterBackend):
     def get_schema_operation_parameters(self, view):
         return [
             {
-                'name': 'year',
+                'name': 'published_date',
                 'required': False,
                 'in': 'query',
                 'description': "Filter by year, expects: \"YYYY\"",
